@@ -422,6 +422,9 @@
             },
             created() {
                 this.user.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                if (this.user.token === '') {
+                    window.location = 'Login.html';
+                }
                 this.getProducts();
                 console.log('created');
             },
